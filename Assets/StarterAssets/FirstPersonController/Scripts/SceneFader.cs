@@ -16,14 +16,28 @@ namespace MyDefence
 
         private void Start()
         {
+            //초기화: 시작히 화면을 검정색으로 시작
+            image.color = new Color(0f, 0f, 0f, 1f);
+            //FromFade();
+
             //씬시작시 페이드인 효과
-            StartCoroutine(FadeIn());
+            //StartCoroutine(FadeIn());
             //StartCoroutine(FadeOut());
 
         }
-
-        IEnumerator FadeIn()
+        public void FromFade(float delayTime = 0f)
         {
+            StartCoroutine (FadeIn(delayTime));
+        }
+
+        IEnumerator FadeIn(float delayTime)
+        {
+            if (delayTime > 0f)
+            {
+            yield return new WaitForSeconds(delayTime);
+
+            }
+
             //1초동안 image a1 -> 0
             //
 

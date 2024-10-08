@@ -13,17 +13,18 @@ namespace MyFPS
         public GameObject actionUI;
         public TextMeshProUGUI actionText;
         [SerializeField] private string action = "Open The Door";
+        public GameObject ExtraCross;
 
         //action
         private Animator animator;
-        private Collider collider;
+        private Collider m_collider;
         public AudioSource audioSource;
         #endregion
 
         private void Start()
         {
             animator = GetComponent<Animator>();
-            collider = GetComponent<BoxCollider>();
+            m_collider = GetComponent<BoxCollider>();
         }
 
         private void Update()
@@ -38,8 +39,7 @@ namespace MyFPS
             //거리가 2이하 일때
             if (theDistance <= 2f)
             {
-                actionUI.SetActive(true);
-                actionText.text = action;
+                showActionUI();
 
                 if (Input.GetButtonDown("Action"))
                 {
@@ -47,7 +47,7 @@ namespace MyFPS
 
                     //문이 열리는 액션
                     animator.SetBool("IsOpen", true);
-                    collider.enabled = false;
+                    m_collider.enabled = false;
                     audioSource.Play();
                 }
             }
@@ -64,10 +64,19 @@ namespace MyFPS
             HideActionUI();
         }
 
+        void showActionUI()
+        {
+            actionUI.SetActive(true);
+            actionText.text = action;
+            ExtraCross.SetActive(true);
+        }
+
         void HideActionUI()
         {
             actionUI.SetActive(false);
             actionText.text = "";
+            ExtraCross.SetActive(false);
+
         }
     }
 
