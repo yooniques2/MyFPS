@@ -10,6 +10,10 @@ namespace MyFPS
         [SerializeField]private float toTarget; //거리 숫자 보기
 
         #endregion
+        void Start()
+        {
+            //distanceFromTarget = Mathf.Infinity;
+        }
 
         // Update is called once per frame
         void Update()
