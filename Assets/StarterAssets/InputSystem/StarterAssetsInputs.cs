@@ -20,11 +20,12 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
-        //Added by Yoon 2024-10-10
-        //초기화
+
+        //add by Yoon 24-10-10
         private void OnEnable()
         {
-            move = Vector2.zero; 
+            //초기화
+            move = Vector2.zero;
             look = Vector2.zero;
             jump = false;
             sprint = false;
@@ -75,7 +76,7 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
-		
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);

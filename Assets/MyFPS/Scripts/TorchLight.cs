@@ -43,7 +43,7 @@ namespace MySample
         {
             lightMode = Random.Range(1, 4);
             animator.SetInteger("LightMode", lightMode);
-            Debug.Log(lightMode);
+            //Debug.Log(lightMode);
 
         }
     }
