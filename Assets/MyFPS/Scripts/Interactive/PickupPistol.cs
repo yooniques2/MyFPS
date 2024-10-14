@@ -3,108 +3,96 @@ using UnityEngine;
 
 namespace MyFPS
 {
-    using TMPro;
-    using UnityEngine;
-
-    namespace MyFPS
+    public class PickupPistol : Interactive
     {
+        #region Variables
+        //action
+        public GameObject realPistol;
+        public GameObject arrow;
 
-        public class PickupPistol : Interactive
+        public GameObject enemyTrigger;
+        #endregion
+        protected override void DoAction()
         {
-            #region Variables
-            //action
-            public GameObject realPistol;
-            public GameObject arrow;
-            #endregion
-            protected override void DoAction()
-            {
-                //Action
-                realPistol.SetActive(true);
-                arrow.SetActive(false);
-                Destroy(gameObject);
-            }
+            //Action
+            realPistol.SetActive(true);
+            arrow.SetActive(false);
 
+            enemyTrigger.SetActive(true);
+
+            Destroy(gameObject);
         }
+
     }
 }
 
+/*
+public class PickupPistol : MonoBehaviour
+{
+        #region Variables
+        private float theDistance;
 
+        //action UI
+        public GameObject actionUI;
+        public TextMeshProUGUI actionText;
+        [SerializeField] private string action = "Pick Up the Pistol";
+        public GameObject extraCross;
 
+        //Action
+        public GameObject realPistol;
+        public GameObject arrow;
 
+        #endregion
 
+        private void Update()
+        {
+        theDistance = PlayerCasting.distanceFromTarget;
 
-
-
-
-
-
-    /*
-    public class PickupPistol : MonoBehaviour
-    {
-            #region Variables
-            private float theDistance;
-
-            //action UI
-            public GameObject actionUI;
-            public TextMeshProUGUI actionText;
-            [SerializeField] private string action = "Pick Up the Pistol";
-            public GameObject extraCross;
-
-            //Action
-            public GameObject realPistol;
-            public GameObject arrow;
-
-            #endregion
-
-            private void Update()
+        }
+        private void OnMouseOver()
+        {
+            //거리가 2이하 일때
+            if (theDistance <= 2f)
             {
-            theDistance = PlayerCasting.distanceFromTarget;
+                showActionUI();
 
-            }
-            private void OnMouseOver()
-            {
-                //거리가 2이하 일때
-                if (theDistance <= 2f)
-                {
-                    showActionUI();
-
-                    if (Input.GetButtonDown("Action"))
-                    {
-                        HideActionUI();
-
-                        DoAction();
-                    }
-                }
-                else
+                if (Input.GetButtonDown("Action"))
                 {
                     HideActionUI();
+
+                    DoAction();
                 }
-
             }
-            private void OnMouseExit()
+            else
             {
-
-            }
-            void showActionUI()
-            {
-                actionUI.SetActive(true);
-                actionText.text = action;
-                extraCross.SetActive(true);
+                HideActionUI();
             }
 
-            void HideActionUI()
-            {
-                actionUI.SetActive(false);
-                actionText.text = "";
-                extraCross.SetActive(false);
+        }
+        private void OnMouseExit()
+        {
 
-            }
-            void DoAction()
-            {
-                //Action
-                realPistol.SetActive(true);
-                arrow.SetActive(false);
-                Destroy(gameObject);
-            }
-        }*/
+        }
+        void showActionUI()
+        {
+            actionUI.SetActive(true);
+            actionText.text = action;
+            extraCross.SetActive(true);
+        }
+
+        void HideActionUI()
+        {
+            actionUI.SetActive(false);
+            actionText.text = "";
+            extraCross.SetActive(false);
+
+        }
+        void DoAction()
+        {
+            //Action
+            realPistol.SetActive(true);
+            arrow.SetActive(false);
+            Destroy(gameObject);
+        }
+    }*/
 
