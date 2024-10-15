@@ -36,6 +36,9 @@ namespace MyFPS
             //enemy 등장 사운드
             jumpscareTune.Play();
 
+            //트리거 킬
+            Destroy(this.gameObject);
+
 
         }
 

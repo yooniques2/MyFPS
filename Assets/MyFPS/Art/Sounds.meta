@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/MyFPS/Art/Sounds.meta
 guid: 62bc96f4d12273b45984d46a6b8981a1
+========
+guid: e74eb3e8859de954490913b20d5740bd
+>>>>>>>> a3ba55ff807d13ed184488d6864382c84d8c805a:Assets/MyFPS/Character/Robot.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
