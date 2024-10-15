@@ -30,13 +30,16 @@ namespace MyFPS
         {
             //참조
             animator = GetComponent<Animator>();
-
            SetState(RobotState.R_Idle);
 
         }
         //로봇의 상태 변경
          private void SetState(RobotState newState)
         {
+            //현재 상태 체크
+            if (currentState == newState)
+                return;
+
             //이전상태 저장
             beforeState = currentState;
             //상태 변경

@@ -17,7 +17,7 @@ namespace MyFPS
         public Transform firePoint;
 
         //연사 딜레이
-        [SerializeField]private float fireDelay = 0.5f;
+        [SerializeField] private float fireDelay = 0.5f;
         private bool isFire = false;
 
         #endregion
@@ -32,9 +32,9 @@ namespace MyFPS
         void Update()
         {
             //슛
-            if (Input.GetButtonDown("Fire") &&!isFire)
+            if (Input.GetButtonDown("Fire") && !isFire)
             {
-            StartCoroutine(Shoot());
+                StartCoroutine(Shoot());
             }
 
         }
@@ -42,11 +42,13 @@ namespace MyFPS
         {
             isFire = true;
 
+            //내앞에 100안에 적이 있으면 적에게 데미지를 준다
             float maxDistance = 100f;
             RaycastHit hit;
 
-            if( Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, maxDistance))
+            if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, maxDistance))
             {
+                //적에게 데미지를 준다
                 Debug.Log("적에게 대미지");
             }
 
