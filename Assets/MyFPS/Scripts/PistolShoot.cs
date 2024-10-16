@@ -16,8 +16,11 @@ namespace MyFPS
         //public Transform camera;
         public Transform firePoint;
 
+        //공격
+        [SerializeField]private float attackDamage = 5f;
+
         //연사 딜레이
-        [SerializeField] private float fireDelay = 0.5f;
+        [SerializeField] private float fireDelay = 0.7f;
         private bool isFire = false;
 
         #endregion
@@ -46,10 +49,18 @@ namespace MyFPS
             float maxDistance = 100f;
             RaycastHit hit;
 
+
+
             if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, maxDistance))
             {
                 //적에게 데미지를 준다
-                Debug.Log("적에게 대미지");
+                Debug.Log($"{hit.transform.name}에게 데미지를 준다");
+                RobotController robot = hit.transform.GetComponent<RobotController>();
+                if (robot != null)
+                {
+                    robot.TakeDamage(attackDamage);
+
+                }
             }
 
             //슛효과 - VFX, SFX
