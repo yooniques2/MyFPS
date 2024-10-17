@@ -11,7 +11,7 @@ namespace MyFPS
         R_Attack,
         R_Death
     }
-    public class RobotController : MonoBehaviour
+    public class RobotController : MonoBehaviour, IDamageable
     {
         #region Variables
         public GameObject thePlayer;

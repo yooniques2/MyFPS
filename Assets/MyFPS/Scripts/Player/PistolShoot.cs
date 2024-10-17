@@ -23,6 +23,10 @@ namespace MyFPS
         [SerializeField] private float fireDelay = 0.7f;
         private bool isFire = false;
 
+        //임팩트
+        public GameObject hitImpactPrefab;
+        //[SerializeField] private float impactForce = 10f;
+
         #endregion
 
         // Start is called before the first frame update
@@ -37,7 +41,11 @@ namespace MyFPS
             //슛
             if (Input.GetButtonDown("Fire") && !isFire)
             {
+                if (PlayerStats.Instance.UseAmmo(1) == true)
+                {
                 StartCoroutine(Shoot());
+
+                }
             }
 
         }
@@ -49,18 +57,35 @@ namespace MyFPS
             float maxDistance = 100f;
             RaycastHit hit;
 
-
-
             if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, maxDistance))
             {
                 //적에게 데미지를 준다
                 Debug.Log($"{hit.transform.name}에게 데미지를 준다");
-                RobotController robot = hit.transform.GetComponent<RobotController>();
-                if (robot != null)
+
+                //임펙트 효과
+                GameObject eff = Instantiate(hitImpactPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(eff, 2f);
+/*
+                if (hit.rigidbody != null)
                 {
-                    robot.TakeDamage(attackDamage);
+                    hit.rigidbody.AddForce(-hit.normal * impactForce, ForceMode.Impulse);
+                }
+*/
+                IDamageable damageable = hit.transform.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(attackDamage);
 
                 }
+
+                /*
+                                RobotController robot = hit.transform.GetComponent<RobotController>();
+                                if (robot != null)
+                                {
+                                    robot.TakeDamage(attackDamage);
+
+                                }
+                */
             }
 
             //슛효과 - VFX, SFX

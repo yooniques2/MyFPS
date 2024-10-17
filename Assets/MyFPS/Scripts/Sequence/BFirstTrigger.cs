@@ -20,6 +20,8 @@ namespace MyFPS
         //action UI
         public GameObject arrowUI;
 
+        public GameObject ammoBox;
+
         #endregion
 
         private void OnTriggerEnter(Collider other)
@@ -39,8 +41,9 @@ namespace MyFPS
             textBox.gameObject.SetActive(true);
             textBox.text = sequence;
 
+            //화살표 활성화
             arrowUI.SetActive(true);
-          
+
             //1초 딜레이
             yield return new WaitForSeconds(1f);
 
