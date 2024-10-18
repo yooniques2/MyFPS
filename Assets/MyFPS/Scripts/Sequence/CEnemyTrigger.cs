@@ -11,7 +11,8 @@ namespace MyFPS
         public GameObject theDoor;  //문
         public AudioSource doorBang;    //문 열기 사운드
 
-        public AudioSource jumpscareTune;   //적 등장 사운드
+        public AudioSource bgm01;   //메인씬 1 배경음
+        public AudioSource bgm02;   //적 등장 사운드
         public GameObject theRobot; //적
         #endregion
 
@@ -34,7 +35,7 @@ namespace MyFPS
             yield return new WaitForSeconds(1f);
 
             //enemy 등장 사운드
-            jumpscareTune.Play();
+            bgm02.Play();
 
             //Enemy 타겟을 향해 걷기
             RobotController robot = theRobot.GetComponent<RobotController>();

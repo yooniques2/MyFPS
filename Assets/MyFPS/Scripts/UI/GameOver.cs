@@ -11,9 +11,7 @@ namespace MyFPS
     {
         #region Variables
         public SceneFader fader;
-
-        private string loadToScene = "PlayScene";
-
+        [SerializeField] private string loadToScene = "PlayScene";
         #endregion
         private void Start()
         {
@@ -24,15 +22,17 @@ namespace MyFPS
             //페이드인 효과
             fader.FromFade();
         }
+
         public void Retry()
         {
-            //SceneManager.LoadScene(loadToScene);
             fader.FadeTo(loadToScene);
         }
+
         public void Menu()
         {
-            Debug.Log("Goto Menu");
+            Debug.Log("Goto Menu!!!");
         }
+
     }
 
 }

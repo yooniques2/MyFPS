@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using StarterAssets;
 
 namespace MyFPS
 {
@@ -16,6 +17,8 @@ namespace MyFPS
         public TextMeshProUGUI textBox;
         [SerializeField]
         private string sequence = "There is a weapon on the table.";
+
+        public AudioSource line03;
 
         //action UI
         public GameObject arrowUI;
@@ -35,11 +38,13 @@ namespace MyFPS
         IEnumerator PlaySquence()
         {
             //  0. 플레이 캐릭터 비 활성화(플레이 멈춤)
-            thePlayer.SetActive(false);
+            thePlayer.GetComponent<FirstPersonController>().enabled = false;
+            //thePlayer.SetActive(false);
 
             //2.화면 하단에 시나리오 텍스트 화면 출력(3초)
             textBox.gameObject.SetActive(true);
             textBox.text = sequence;
+            line03.Play();
 
             //화살표 활성화
             arrowUI.SetActive(true);
@@ -52,10 +57,11 @@ namespace MyFPS
             textBox.gameObject.SetActive(false);
 
             //4.플레이 캐릭터 활성화
-            thePlayer.SetActive(true);
+            thePlayer.GetComponent<FirstPersonController>().enabled = true;
 
             //트리거 충돌체 비활성화
-            transform.GetComponent<BoxCollider>().enabled = false;
+            Destroy(gameObject);
+            //transform.GetComponent<BoxCollider>().enabled = false;
 
         }
     }
