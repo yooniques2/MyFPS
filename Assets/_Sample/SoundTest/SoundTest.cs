@@ -13,7 +13,7 @@ namespace MySample
         [SerializeField] private float volume = 1.0f;
         [SerializeField] private float pitch = 1.0f;
         [SerializeField] private bool loop = false;
-        [SerializeField] private bool playOnAwake = false;
+        //[SerializeField] private bool playOnAwake = false;
 
         #endregion
         // Start is called before the first frame update

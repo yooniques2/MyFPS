@@ -61,7 +61,6 @@ namespace MyFPS
             extraCross.SetActive(false);
 
         }
-
     }
 }
 

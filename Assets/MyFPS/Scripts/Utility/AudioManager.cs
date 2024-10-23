@@ -66,11 +66,12 @@ namespace MyFPS
             foreach (var s in sounds)
             {
                 if (s.name == name)
-                    bgmSound = s.name;
-                {
                     sound = s;
-                    break;
+                if(s.name == bgmSound)
+                {
+                    bgmSound = "";
                 }
+                    break;
             }
             //매개변수 이름과 같은 클립이 없으면
 
@@ -81,7 +82,6 @@ namespace MyFPS
             }
             sound.source.Stop();
         }
-        //배경음 정지
 
 
         //배경음 재생
@@ -92,10 +92,37 @@ namespace MyFPS
             {
                 return;
             }
+            //배경음 정지
+            StopBgm();
 
+            Sound sound = null;
+            foreach (var s in sounds)
+            {
+                if (s.name == name)
+                {
+                    
+                bgmSound = "";
+                    sound = s;
+                break;
+                }
+            }
+            //매개변수 이름과 같은 클립이 없으면
+            if (sound == null)
+            {
+                Debug.Log($"Cannot Find {name}");
+                return;
+            }
 
-
+            sound.source.Play();
         }
+
+        public void StopBgm()
+        {
+            Stop(bgmSound);
+        }
+
     }
 
 }
+
+

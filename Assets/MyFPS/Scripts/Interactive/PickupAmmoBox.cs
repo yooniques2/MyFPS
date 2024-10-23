@@ -13,7 +13,7 @@ namespace MyFPS
         public GameObject ammoArrow;
             
         //ammobox 아이템 획득시 지급하는 ammo 갯수
-        [SerializeField]private int giveAmmo = 7;
+        [SerializeField] private int giveAmmo = 7;
 
         #endregion
 

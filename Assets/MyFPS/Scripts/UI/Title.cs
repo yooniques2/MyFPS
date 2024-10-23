@@ -1,5 +1,4 @@
 using System.Collections;
-using MyDefence;
 using UnityEngine;
 
 namespace MyFPS

@@ -9,6 +9,9 @@ namespace MyFPS
         #region Variables
         public GameObject pauseUI; // UI 패널을 참조합니다.
 
+        public SceneFader fader;
+        [SerializeField] private string loadToScene = "";
+
         public GameObject thePlayer;
 
         #endregion
@@ -66,7 +69,12 @@ namespace MyFPS
         {
             Time.timeScale = 1f;
 
-            Debug.Log("Goto Menu");
+            //씬 종료 처리
+            AudioManager.Instance.StopBgm();
+
+            //Debug.Log("Goto Menu");
+            fader.FadeTo(loadToScene);
+
         }
 
     }
