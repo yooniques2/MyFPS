@@ -77,7 +77,7 @@ namespace MyFPS
 
             if (sound == null)
             {
-                Debug.Log($"Cannot find + {name}");
+                //Debug.Log($"Cannot find + {name}");
                 return;
             }
             sound.source.Stop();

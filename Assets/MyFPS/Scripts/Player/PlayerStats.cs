@@ -4,6 +4,13 @@ using UnityEngine;
 
 namespace MyFPS
 {
+    public enum PuzzleKey
+    {
+        ROOM01_KEY,
+        MAX_KEY             //퍼즐 아이템 갯수
+
+    }
+
     //플레이어의 속성값을 관리하는 (싱글톤,DontDestroy) 클래스.. ammo
     public class PlayerStats : PersistentSingleton<PlayerStats>
     {
@@ -22,11 +29,15 @@ namespace MyFPS
             }
         }
 
+        //게임 퍼즐 아이템 키
+        private bool[] puzzleKeys;
+
         #endregion
         private void Start()
         {
             //속성값/Data Reset
             AmmoCount = 0;
+            puzzleKeys = new bool[(int)PuzzleKey.MAX_KEY];
         }
         public void Addammo(int amount)
         {
@@ -44,6 +55,15 @@ namespace MyFPS
             AmmoCount -= amount;
             return true;
         }
-    }
+        public void AcquirePuzzleItem(PuzzleKey key)
+        {
+            puzzleKeys[(int)key] = true;
+        }
+        //퍼즐 아이템을 소지여부
+        public bool HasPuzzleItem(PuzzleKey key)
+        {
+            return puzzleKeys[(int)key];
+        }
 
+    }
 }

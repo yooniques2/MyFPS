@@ -17,6 +17,9 @@ namespace MyFPS
         [SerializeField] private string action = "Action Text";
         public GameObject extraCross;
 
+
+        //true면 interactive 기능을 정지
+        protected bool unInteractive = false;
         #endregion
 
         private void Update()
@@ -27,7 +30,7 @@ namespace MyFPS
        private void OnMouseOver()
         {
             //거리가 2이하 일때
-            if (theDistance <= 2f)
+            if (theDistance <= 2f && !unInteractive)
             {
                 showActionUI();
 

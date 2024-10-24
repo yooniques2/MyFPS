@@ -46,6 +46,7 @@ namespace MyFPS
             fader.FromFade();
 
             //2.화면 하단에 시나리오 텍스트 화면 출력(3초) 
+            thePlayer.GetComponent<FirstPersonController>().enabled = true;
             textBox.gameObject.SetActive(true);
             textBox.text = sequence03;
 
@@ -55,7 +56,6 @@ namespace MyFPS
             textBox.gameObject.SetActive(false);
 
             //4.플레이 캐릭터 활성화
-            thePlayer.GetComponent<FirstPersonController>().enabled = true;
 
         }
     }
