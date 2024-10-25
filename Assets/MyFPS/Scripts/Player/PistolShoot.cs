@@ -60,7 +60,7 @@ namespace MyFPS
             if (Physics.Raycast(firePoint.position, firePoint.TransformDirection(Vector3.forward), out hit, maxDistance))
             {
                 //적에게 데미지를 준다
-                Debug.Log($"{hit.transform.name}에게 데미지를 준다");
+                //Debug.Log($"{hit.transform.name}에게 데미지를 준다");
 
                 //임펙트 효과
                 GameObject eff = Instantiate(hitImpactPrefab, hit.point, Quaternion.LookRotation(hit.normal));

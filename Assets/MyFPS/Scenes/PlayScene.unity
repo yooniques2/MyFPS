@@ -701,7 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 1452875188834928329}
   textBox: {fileID: 2086999627}
-  sequence: Loks like there is a weapon on the table.
+  sequence: Looks like there is a weapon on that table.
   line03: {fileID: 1116053652199851850}
   arrowUI: {fileID: 1400977442}
   ammoBox: {fileID: 0}
@@ -5279,7 +5279,7 @@ GameObject:
   - component: {fileID: 1206089054}
   - component: {fileID: 1206089056}
   - component: {fileID: 1206089055}
-  - component: {fileID: 1206089057}
+  - component: {fileID: 1206089058}
   m_Layer: 0
   m_Name: Door3
   m_TagString: Untagged
@@ -5346,7 +5346,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.012871449, y: 0.12993628, z: 0.08303942}
   m_Center: {x: -0.0006084567, y: 0.044358432, z: -0.062299583}
---- !u!114 &1206089057
+--- !u!114 &1206089058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5355,14 +5355,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206089053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf87c2f5c35a45645a16274874b49b39, type: 3}
+  m_Script: {fileID: 11500000, guid: 901ead2574f1b4a4c8517c09da2748b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionUI: {fileID: 1903934175}
   actionText: {fileID: 1412165820}
   action: Action Text
   extraCross: {fileID: 417607563}
-  audioSource: {fileID: 4708530661220677655}
+  unInteractive: 0
+  fader: {fileID: 1167706050}
+  loadToScene: PlayScene02
+  creakydoor: {fileID: 4708530661220677655}
+  bgm01: {fileID: 7176417523249134467}
 --- !u!1 &1249297703
 GameObject:
   m_ObjectHideFlags: 0
@@ -6501,6 +6505,7 @@ MonoBehaviour:
   actionText: {fileID: 1412165820}
   action: Pick Up the Pistol
   extraCross: {fileID: 417607563}
+  unInteractive: 0
   realPistol: {fileID: 3883956466843966460}
   arrow: {fileID: 1400977442}
   enemyTrigger: {fileID: 920262043}
@@ -11782,6 +11787,7 @@ MonoBehaviour:
   actionText: {fileID: 1412165820}
   action: Open The Door
   extraCross: {fileID: 417607563}
+  unInteractive: 0
   audioSource: {fileID: 4708530661220677655}
 --- !u!65 &5636670984850107536
 BoxCollider:

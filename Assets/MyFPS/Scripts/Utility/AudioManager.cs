@@ -66,18 +66,20 @@ namespace MyFPS
             foreach (var s in sounds)
             {
                 if (s.name == name)
-                    sound = s;
-                if(s.name == bgmSound)
                 {
-                    bgmSound = "";
-                }
+                    sound = s;
+                    if (s.name == bgmSound)
+                    {
+                        bgmSound = "";
+                    }
                     break;
+                }
             }
             //매개변수 이름과 같은 클립이 없으면
 
             if (sound == null)
             {
-                //Debug.Log($"Cannot find + {name}");
+                Debug.Log($"Cannot find + {name}");
                 return;
             }
             sound.source.Stop();
@@ -101,7 +103,7 @@ namespace MyFPS
                 if (s.name == name)
                 {
                     
-                bgmSound = "";
+                bgmSound = name;
                 sound = s;
                 break;
                 }

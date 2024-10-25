@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MyFPS
 {
 
-    public class MaiMenu : MonoBehaviour
+    public class MainMenu : MonoBehaviour
     {
         #region Variables
         public SceneFader fader;
@@ -22,13 +22,14 @@ namespace MyFPS
 
             audioManager = AudioManager.Instance;
 
-            AudioManager.Instance.Play("MenuBGM");
+            audioManager.PlayBgm("MenuBGM");
         }
 
         public void NewGame()
         {
             audioManager.Stop(audioManager.BgmSound);
-            audioManager.Play("MenuButton");
+            Debug.Log("New Game");
+            audioManager.Play("MenuBtn");
 
             fader.FadeTo(loadToScene);
         }

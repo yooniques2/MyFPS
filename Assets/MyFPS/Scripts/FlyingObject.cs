@@ -11,7 +11,7 @@ namespace MyFPS
         #endregion
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.relativeVelocity.magnitude > 2)
+            if (collision.relativeVelocity.magnitude > velocity)
             {
                 //오브젝트나 바닥에 부딪히는 사운드 재생
                 AudioManager.Instance.Play("CupFall");
