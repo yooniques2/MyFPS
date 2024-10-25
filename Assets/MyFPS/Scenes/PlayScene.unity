@@ -5362,7 +5362,6 @@ MonoBehaviour:
   actionText: {fileID: 1412165820}
   action: Action Text
   extraCross: {fileID: 417607563}
-  unInteractive: 0
   audioSource: {fileID: 4708530661220677655}
 --- !u!1 &1249297703
 GameObject:
@@ -6502,7 +6501,6 @@ MonoBehaviour:
   actionText: {fileID: 1412165820}
   action: Pick Up the Pistol
   extraCross: {fileID: 417607563}
-  unInteractive: 0
   realPistol: {fileID: 3883956466843966460}
   arrow: {fileID: 1400977442}
   enemyTrigger: {fileID: 920262043}
@@ -11784,7 +11782,6 @@ MonoBehaviour:
   actionText: {fileID: 1412165820}
   action: Open The Door
   extraCross: {fileID: 417607563}
-  unInteractive: 0
   audioSource: {fileID: 4708530661220677655}
 --- !u!65 &5636670984850107536
 BoxCollider:

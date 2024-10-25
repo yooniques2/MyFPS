@@ -63,3 +63,21 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: DoorLocked
+    clip: {fileID: 8300000, guid: 5d35820e6afb8fa4fadc706c8beb9009, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PotterySmash
+    clip: {fileID: 8300000, guid: ef8a9de3c16b2304cb403fa3ea66f9c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: bf07b726a28c57d4cae67202889ff7f4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -102,7 +102,7 @@ namespace MyFPS
                 {
                     
                 bgmSound = "";
-                    sound = s;
+                sound = s;
                 break;
                 }
             }

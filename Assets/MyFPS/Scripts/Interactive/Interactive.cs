@@ -19,7 +19,7 @@ namespace MyFPS
 
 
         //true면 interactive 기능을 정지
-        protected bool unInteractive = false;
+        [SerializeField] protected bool unInteractive = false;
         #endregion
 
         private void Update()
