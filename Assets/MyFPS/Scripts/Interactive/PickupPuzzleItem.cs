@@ -27,7 +27,7 @@ namespace MyFPS
             StartCoroutine(GainPuzzleItem());
 
         }
-        IEnumerator GainPuzzleItem()
+        protected IEnumerator GainPuzzleItem()
         {
             PlayerStats.Instance.AcquirePuzzleItem(puzzleKey);
 
