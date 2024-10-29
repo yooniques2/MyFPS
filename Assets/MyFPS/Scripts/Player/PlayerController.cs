@@ -5,11 +5,11 @@ using UnityEngine;
 namespace MyFPS
 {
 
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDamageable
     {
         #region Variables
         public SceneFader fader;
-        private string loadToScene = "GameOver";
+        [SerializeField] private string loadToScene = "GameOver";
 
         [SerializeField] private float maxHealth = 20;
 
