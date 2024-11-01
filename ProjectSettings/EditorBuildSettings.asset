@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyFPS/Scenes/MainMenu.unity
     guid: 0e8dc8678dcb05c43b063438663f9e3a
+  - enabled: 1
+    path: Assets/MyFPS/Scenes/Intro.unity
+    guid: 5092513f706c4d2449095b2ac2546306
   m_configObjects: {}
