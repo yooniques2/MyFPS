@@ -949,7 +949,7 @@ PrefabInstance:
     - target: {fileID: 3543536272217990693, guid: f587d131f6ab4b1448342090c0898d2c,
         type: 3}
       propertyPath: sounds.Array.data[6].pitch
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3543536272217990693, guid: f587d131f6ab4b1448342090c0898d2c,
         type: 3}
@@ -1008,7 +1008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771316780}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.46955168, z: 0, w: 0.882905}
+  m_LocalRotation: {x: 0, y: 0.4697798, z: 0, w: 0.88278365}
   m_LocalPosition: {x: 499.77014, y: 1.7, z: 456.65195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1090,7 +1090,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: 37.350677, y: 0, z: 61.167908}
     roll: 0
-  - position: {x: 43.71695, y: 0, z: 80.50769}
+  - position: {x: 42.48227, y: 0, z: 80.50769}
     roll: 0
 --- !u!4 &976613008
 Transform:

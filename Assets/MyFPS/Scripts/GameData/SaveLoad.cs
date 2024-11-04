@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace MyFPS
 {
     //게임 데이터 파일 저장/가져오기 구현 - 이진화 저장
-    public class SaveLoad : MonoBehaviour
+    public static class SaveLoad
     {
         private static string fileName = "/playData.arr";
         public static void SaveData()
@@ -48,7 +48,7 @@ namespace MyFPS
 
                 //파일에 이진화로 저장된 데이터를 역 이진화해서 가져온다
                 playData = formatter.Deserialize(fs) as PlayData;
-                Debug.Log($"Load SceneNumber : {playData.sceneNumber}");
+                //Debug.Log($"Load SceneNumber : {playData.sceneNumber}");
 
                 fs.Close() ;
             }

@@ -119,10 +119,10 @@ namespace MyFPS
         {
             isArrive[wayPointIndex] = true;
             cart.m_Speed = 0f;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
             theShedLight.SetActive(false);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
             //Debug.Log("마지막지점 도착");
             AudioManager.Instance.StopBgm();

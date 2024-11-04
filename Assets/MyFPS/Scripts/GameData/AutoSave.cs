@@ -19,17 +19,17 @@ namespace MyFPS
             //int sceneNumber = PlayerPrefs.GetInt("PlayerScene", 0);
             //Debug.Log($"저장 sceneNumber: {sceneNumber}");
 
-            int playScene = SceneManager.GetActiveScene().buildIndex;
-            Debug.Log($"저장 sceneNumber: {playScene}");
+            PlayerStats.Instance.NowSceneNumber = SceneManager.GetActiveScene().buildIndex;
+            Debug.Log($"저장 sceneNumber: {PlayerStats.Instance.NowSceneNumber}");
 
             //새로운씬인가 확인
-            if (playScene > sceneNumber)
+            if (PlayerStats.Instance.NowSceneNumber > sceneNumber)
             {
                 //Debug.Log($"저장 playSceneNumber: {sceneNumber}");
                 //Debug.Log("새로플레이하는씬저장");
                 //PlayerPrefs.SetInt("playScene", playScene);
 
-                PlayerStats.Instance.SceneNumber = playScene;
+                PlayerStats.Instance.SceneNumber = PlayerStats.Instance.NowSceneNumber;
                 SaveLoad.SaveData();
             
             }
