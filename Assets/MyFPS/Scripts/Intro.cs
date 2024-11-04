@@ -9,10 +9,11 @@ namespace MyFPS
     {
         #region Variabels
         public SceneFader fader;
-        private string loadToScene = "PlayScene";
+        [SerializeField] private string loadToScene = "PlayScene01";
 
         //0.08
         public CinemachineDollyCart cart;
+
         private bool[] isArrive;
         [SerializeField] private int wayPointIndex = 0;
 
@@ -33,7 +34,7 @@ namespace MyFPS
         private void Update()
         {
             //도착판정
-            if (cart.m_Position > wayPointIndex && isArrive[wayPointIndex] == false)
+            if (cart.m_Position >= wayPointIndex && isArrive[wayPointIndex] == false)
             {
                 //연출
                 if (wayPointIndex == isArrive.Length - 1)
@@ -77,7 +78,7 @@ namespace MyFPS
             wayPointIndex++;
             cart.m_Speed = 0f;
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
             //카메라 애니메이션
             //cameraAnim.SetTrigger("AroundTrigger");
@@ -127,6 +128,7 @@ namespace MyFPS
             AudioManager.Instance.StopBgm();
 
             fader.FadeTo(loadToScene);
+
 
         }
         private void GoToMainScene()

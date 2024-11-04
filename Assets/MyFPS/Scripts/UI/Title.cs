@@ -10,8 +10,10 @@ public class Title : MonoBehaviour
         public SceneFader fader;
         [SerializeField] private string loadToScene = "MainMenu";
 
-        private bool isAnyKey;
+        private bool isAnyKey = false;
         public GameObject anykeyUI;
+
+        //private AudioManager audioManager;
         #endregion
 
         private void Start()
@@ -24,20 +26,6 @@ public class Title : MonoBehaviour
             StartCoroutine(TitleProcess());
 
         }
-       //3초 뒤에 anykey show, 10초 뒤에 자동 넘김
-       IEnumerator TitleProcess()
-        {
-            yield return new WaitForSeconds(4f);
-            isAnyKey = true;
-            anykeyUI.SetActive(true);
-
-            yield return new WaitForSeconds(10f);
-
-            GotoMenu();
-
-        }
-
-
         private void Update()
         {
 
@@ -47,9 +35,24 @@ public class Title : MonoBehaviour
             }
 
         }
+
+        //3초 뒤에 anykey show, 10초 뒤에 자동 넘김
+        IEnumerator TitleProcess()
+        {
+            yield return new WaitForSeconds(4f);
+            isAnyKey = true;
+            anykeyUI.SetActive(true);
+            //audioManager.Play("MenuBtn");
+
+            yield return new WaitForSeconds(10f);
+            GotoMenu();
+
+        }
+
         private void GotoMenu()
         {
             StopAllCoroutines();
+
             fader.FadeTo(loadToScene);
         }
     }

@@ -10,7 +10,7 @@ namespace MyFPS
         public GameObject pauseUI; // UI 패널을 참조합니다.
 
         public SceneFader fader;
-        [SerializeField] private string loadToScene = "";
+        [SerializeField] private string loadToScene = "MainMenu";
 
         public GameObject thePlayer;
 
@@ -72,7 +72,7 @@ namespace MyFPS
             //씬 종료 처리
             AudioManager.Instance.StopBgm();
 
-            //Debug.Log("Goto Menu");
+            Debug.Log("Goto Menu");
             fader.FadeTo(loadToScene);
 
         }

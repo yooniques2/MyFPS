@@ -1,5 +1,3 @@
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyFPS
@@ -18,6 +16,36 @@ namespace MyFPS
     public class PlayerStats : PersistentSingleton<PlayerStats>
     {
         #region Variables
+        //저장된 sceneNumber
+        private int sceneNumber;
+        public int SceneNumber
+        {
+            get
+            {
+                return sceneNumber;
+            }
+            set
+            {
+                sceneNumber = value;
+            }
+        }
+
+        //지금 플레이 하고 잇는 sceneNumber
+        private int nowSceneNumber;
+        public int NowSceneNumber
+        {
+            get
+            {
+                return nowSceneNumber;
+            }
+            set
+            {
+                nowSceneNumber = value;
+            }
+        }
+
+
+
         //탄환 갯수
         [SerializeField] private int ammoCount;
         public int AmmoCount
@@ -32,6 +60,20 @@ namespace MyFPS
             }
         }
 
+        //무기 소지 여부
+        private bool hasGun;
+        public bool HasGun
+        {
+            get
+            {
+                return hasGun;
+            }
+            set
+            {
+                hasGun = value;
+            }
+        }
+
         //게임 퍼즐 아이템 키
         private bool[] puzzleKeys;
 
@@ -39,9 +81,26 @@ namespace MyFPS
         private void Start()
         {
             //속성값/Data Reset
-            AmmoCount = 0;
+            //AmmoCount = 0;
             puzzleKeys = new bool[(int)PuzzleKey.MAX_KEY];
         }
+        public void PlayerStatInit(PlayData playData)
+        {
+            if (playData != null)
+            {
+                SceneNumber = playData.sceneNumber;
+                AmmoCount = playData.ammoCount;
+                hasGun = playData.hasGun;
+            }
+            else    //저장된 데이터가 없을떄
+            {
+                SceneNumber = 0;
+                AmmoCount = 0;
+                hasGun = false;
+            }
+            
+        }
+
         public void Addammo(int amount)
         {
             AmmoCount += amount;
@@ -67,6 +126,10 @@ namespace MyFPS
         {
             return puzzleKeys[(int)key];
         }
-
+        //무기 획득 셋팅
+        public void SetHasGun(bool value)
+        {
+            HasGun = value;
+        }
     }
 }

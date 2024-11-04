@@ -54,6 +54,12 @@ namespace MyFPS
         {
             StartCoroutine(FadeOut(sceneName));
         }
+
+        public void FadeTo(int sceneNumber)
+        {
+            StartCoroutine(FadeOut(sceneNumber));
+        }
+
         IEnumerator FadeOut(string sceneName)
         {
             //1초 동안 image a0 -> 1
@@ -68,6 +74,22 @@ namespace MyFPS
             }
             //다음씬 로드
             SceneManager.LoadScene(sceneName);
+
+        }
+        IEnumerator FadeOut(int sceneNumber)
+        {
+            //1초 동안 image a0 -> 1
+            float t = 0f;
+
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+                float a = curve.Evaluate(t);
+                image.color = new Color(0f, 0f, 0f, a);
+                yield return 0f;
+            }
+            //다음씬 로드
+            SceneManager.LoadScene(sceneNumber);
 
         }
     }

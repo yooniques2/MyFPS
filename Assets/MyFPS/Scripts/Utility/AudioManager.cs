@@ -6,7 +6,7 @@ namespace MyFPS
 {
 
     //오디오를 관리하는 클래스
-    public class AudioManager : PersistentSingleton<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         #region Variables
         public Sound[] sounds;

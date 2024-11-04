@@ -20,15 +20,15 @@ namespace MyFPS
         protected override void DoAction()
         {
             //Action
-            realPistol.SetActive(true);
             arrow.SetActive(false);
-
             ammoBox.SetActive(true);
-            ammoUI.SetActive(true);
-
             ammoArrow.SetActive(true);
 
             enemyTrigger.SetActive(true);
+
+            PlayerStats.Instance.SetHasGun(true);
+            ammoUI.SetActive(true );
+            realPistol.SetActive(true);
 
             Destroy(gameObject);
 
